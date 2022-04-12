@@ -1,9 +1,10 @@
 #include "process.h"
 
-int Process::num = 0;
+//int Process::num = 0;
 
 int Process::get_num()
 {
+    static int num = 0;
     num++;
     return num;
 }

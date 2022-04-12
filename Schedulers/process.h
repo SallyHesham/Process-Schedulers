@@ -11,7 +11,7 @@ private:
     int burst;
     int priority;
     int time_left;
-    static int num;
+    //static int num;
     int get_num();
 
 public:
