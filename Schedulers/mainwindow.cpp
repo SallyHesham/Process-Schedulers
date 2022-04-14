@@ -13,3 +13,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+void MainWindow::on_buttonBox_accepted()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
