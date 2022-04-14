@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
@@ -21,6 +22,7 @@
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +41,7 @@ public:
     QListWidget *listWidget;
     QDialogButtonBox *buttonBox;
     QWidget *page_2;
+    QTableWidget *tableWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -69,7 +72,7 @@ public:
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
         QFont font;
-        font.setPointSize(12);
+        font.setPointSize(14);
         font.setBold(true);
         label->setFont(font);
 
@@ -77,6 +80,9 @@ public:
 
         label_2 = new QLabel(gridLayoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        QFont font1;
+        font1.setPointSize(10);
+        label_2->setFont(font1);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
@@ -87,6 +93,8 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(spinBox->sizePolicy().hasHeightForWidth());
         spinBox->setSizePolicy(sizePolicy1);
+        spinBox->setFont(font1);
+        spinBox->setMinimum(1);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, spinBox);
 
@@ -103,11 +111,13 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(listWidget->sizePolicy().hasHeightForWidth());
         listWidget->setSizePolicy(sizePolicy2);
+        listWidget->setFont(font1);
 
         formLayout->setWidget(2, QFormLayout::SpanningRole, listWidget);
 
         buttonBox = new QDialogButtonBox(gridLayoutWidget);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setFont(font1);
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
         formLayout->setWidget(3, QFormLayout::SpanningRole, buttonBox);
@@ -115,6 +125,10 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
+        tableWidget = new QTableWidget(page_2);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setGeometry(QRect(180, 160, 256, 192));
+        tableWidget->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::CurrentChanged|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked);
         stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -126,6 +140,10 @@ public:
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
+
+        stackedWidget->setCurrentIndex(1);
+        listWidget->setCurrentRow(0);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi

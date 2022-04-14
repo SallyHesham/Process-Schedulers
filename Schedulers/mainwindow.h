@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    string selected_scheduler;
+    int num_of_processes;
+
 private slots:
 
     void on_buttonBox_accepted();
