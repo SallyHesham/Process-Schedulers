@@ -5,9 +5,9 @@ LinkedList::LinkedList()
 
 }
 
-void LinkedList::add_node(int s, int e)
+void LinkedList::add_node(int n, int s, int e)
 {
-    Node* node = new Node(s, e);
+    Node* node = new Node(n, s, e);
     if (!this->head) {
         this->head = node;
     }

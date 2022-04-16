@@ -1,7 +1,8 @@
 #include "node.h"
 
-Node::Node(int s, int e)
+Node::Node(int n, int s, int e)
 {
+    name = n;
     start = s;
     end = e;
 }
@@ -9,6 +10,11 @@ Node::Node(int s, int e)
 void Node::set_next(Node *n)
 {
     next = n;
+}
+
+int Node::get_name()
+{
+    return name;
 }
 
 int Node::get_start()

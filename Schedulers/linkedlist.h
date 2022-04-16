@@ -9,7 +9,7 @@ private:
     Node* tail;
 public:
     LinkedList();
-    void add_node(int s, int e);
+    void add_node(int n, int s, int e);
     Node* get_head();
     Node* get_tail();
 };

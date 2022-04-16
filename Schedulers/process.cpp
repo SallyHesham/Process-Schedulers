@@ -15,7 +15,7 @@ Process::Process(int e, int b)
     burst = b;
     time_left = b;
     priority = b;
-    name = "P" + to_string(get_num());
+    name = get_num();
 }
 
 Process::Process(int e, int b, int p)
@@ -24,7 +24,7 @@ Process::Process(int e, int b, int p)
     burst = b;
     time_left = b;
     priority = p;
-    name = "P" + to_string(get_num());
+    name = get_num();
 }
 
 void Process::set_time_left(int x)
@@ -57,7 +57,7 @@ int Process::get_time_left()
     return time_left;
 }
 
-string Process::get_name()
+int Process::get_name()
 {
     return name;
 }

@@ -1,12 +1,12 @@
 #ifndef PROCESS_H
 #define PROCESS_H
-#include <string>
-using namespace std;
+//#include <string>
+//using namespace std;
 
 class Process
 {
 private:
-    string name;
+    int name;
     int entry;
     int burst;
     int priority;
@@ -23,7 +23,7 @@ public:
     int get_burst();
     int get_priority();
     int get_time_left();
-    string get_name();
+    int get_name();
 };
 
 
