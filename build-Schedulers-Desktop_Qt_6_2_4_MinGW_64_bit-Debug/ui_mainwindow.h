@@ -41,6 +41,10 @@ public:
     QListWidget *listWidget;
     QDialogButtonBox *buttonBox;
     QWidget *page_2;
+    QWidget *formLayoutWidget;
+    QFormLayout *formLayout_2;
+    QDialogButtonBox *buttonBox_2;
+    QLabel *label_3;
     QTableWidget *tableWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -136,10 +140,29 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        tableWidget = new QTableWidget(page_2);
+        formLayoutWidget = new QWidget(page_2);
+        formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
+        formLayoutWidget->setGeometry(QRect(9, 9, 611, 371));
+        formLayout_2 = new QFormLayout(formLayoutWidget);
+        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
+        formLayout_2->setContentsMargins(0, 0, 0, 0);
+        buttonBox_2 = new QDialogButtonBox(formLayoutWidget);
+        buttonBox_2->setObjectName(QString::fromUtf8("buttonBox_2"));
+        buttonBox_2->setStandardButtons(QDialogButtonBox::Ok);
+
+        formLayout_2->setWidget(2, QFormLayout::SpanningRole, buttonBox_2);
+
+        label_3 = new QLabel(formLayoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font);
+
+        formLayout_2->setWidget(0, QFormLayout::SpanningRole, label_3);
+
+        tableWidget = new QTableWidget(formLayoutWidget);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(180, 160, 256, 192));
-        tableWidget->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
+
+        formLayout_2->setWidget(1, QFormLayout::SpanningRole, tableWidget);
+
         stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -152,7 +175,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         listWidget->setCurrentRow(0);
 
 
@@ -181,6 +204,7 @@ public:
         ___qlistwidgetitem5->setText(QCoreApplication::translate("MainWindow", "Shortest Job First (non-preemptive)", nullptr));
         listWidget->setSortingEnabled(__sortingEnabled);
 
+        label_3->setText(QCoreApplication::translate("MainWindow", "Please enter processes' information:", nullptr));
     } // retranslateUi
 
 };
