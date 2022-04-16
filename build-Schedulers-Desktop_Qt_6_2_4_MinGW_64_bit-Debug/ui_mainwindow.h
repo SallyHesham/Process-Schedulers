@@ -46,6 +46,8 @@ public:
     QDialogButtonBox *buttonBox_2;
     QLabel *label_3;
     QTableWidget *tableWidget;
+    QLabel *label_4;
+    QSpinBox *spinBox_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -150,7 +152,7 @@ public:
         buttonBox_2->setObjectName(QString::fromUtf8("buttonBox_2"));
         buttonBox_2->setStandardButtons(QDialogButtonBox::Ok);
 
-        formLayout_2->setWidget(2, QFormLayout::SpanningRole, buttonBox_2);
+        formLayout_2->setWidget(3, QFormLayout::SpanningRole, buttonBox_2);
 
         label_3 = new QLabel(formLayoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -161,7 +163,23 @@ public:
         tableWidget = new QTableWidget(formLayoutWidget);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
 
-        formLayout_2->setWidget(1, QFormLayout::SpanningRole, tableWidget);
+        formLayout_2->setWidget(2, QFormLayout::SpanningRole, tableWidget);
+
+        label_4 = new QLabel(formLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setEnabled(false);
+
+        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_4);
+
+        spinBox_2 = new QSpinBox(formLayoutWidget);
+        spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
+        spinBox_2->setEnabled(false);
+        sizePolicy2.setHeightForWidth(spinBox_2->sizePolicy().hasHeightForWidth());
+        spinBox_2->setSizePolicy(sizePolicy2);
+        spinBox_2->setFont(font1);
+        spinBox_2->setMinimum(1);
+
+        formLayout_2->setWidget(1, QFormLayout::FieldRole, spinBox_2);
 
         stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
@@ -205,6 +223,7 @@ public:
         listWidget->setSortingEnabled(__sortingEnabled);
 
         label_3->setText(QCoreApplication::translate("MainWindow", "Please enter processes' information:", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Quantum:", nullptr));
     } // retranslateUi
 
 };

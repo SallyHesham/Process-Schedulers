@@ -17,6 +17,7 @@ public:
 
     QString selected_scheduler;
     int num_of_processes;
+    int quantum;
 
 private slots:
 
