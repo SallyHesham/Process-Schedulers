@@ -175,7 +175,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
         listWidget->setCurrentRow(0);
 
 

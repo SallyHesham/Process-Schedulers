@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <string>
+//#include <string>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -15,7 +15,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    std::string selected_scheduler;
+    QString selected_scheduler;
     int num_of_processes;
 
 private slots:
