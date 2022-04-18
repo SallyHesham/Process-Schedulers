@@ -83,6 +83,7 @@ void MainWindow::on_buttonBox_2_accepted()
         }
     }
     LinkedList list;
+/*
     if (selected_scheduler == "First Come First Serve"){
         fcfs* scheduler = new fcfs(*arr, num_of_processes);
         list = scheduler->gantt_chart();
@@ -98,19 +99,28 @@ void MainWindow::on_buttonBox_2_accepted()
     } else if (selected_scheduler == "Shortest Job First (non-preemptive)"){
 
     } else {QApplication::quit();}
-
+*/
+    //for testing
+    list.add_node(1, 0, 2);
+    list.add_node(2, 2, 5);
+    //end testing
     Node* node = list.get_head();
     int num_of_slots = 0;
     while(node != nullptr){
         num_of_slots++;
         node = node->get_next();
     }
-    ui->tableWidget_2->setRowCount(2);
-    ui->tableWidget_2->setColumnCount(num_of_slots);
-    ui->stackedWidget->setCurrentIndex(2);
+    node = list.get_head();
+
+    ui->horizontalLayout_5->addWidget(new QLabel(QString::number(0)));
     for(int slot = 0; slot < num_of_slots; slot++){
-        ui->tableWidget_2->setItem(0, slot, )
+        int dur = node->get_end() - node->get_start();
+        //ui->horizontalLayout_3->addWidget(, dur);
+        ui->horizontalLayout_5->addStretch(dur);
+        ui->horizontalLayout_5->addWidget(new QLabel(QString::number(node->get_end())));
+        node = node->get_next();
     }
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_buttonBox_3_rejected()

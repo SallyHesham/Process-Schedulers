@@ -5,6 +5,7 @@ Node::Node(int n, int s, int e)
     name = n;
     start = s;
     end = e;
+    next = nullptr;
 }
 
 void Node::set_next(Node *n)

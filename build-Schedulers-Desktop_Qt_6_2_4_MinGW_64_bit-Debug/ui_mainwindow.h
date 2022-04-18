@@ -14,15 +14,16 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
@@ -52,8 +53,10 @@ public:
     QWidget *page_3;
     QWidget *formLayoutWidget_2;
     QFormLayout *formLayout_3;
-    QTableView *tableView;
+    QHBoxLayout *horizontalLayout_3;
     QDialogButtonBox *buttonBox_3;
+    QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout_5;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -196,16 +199,25 @@ public:
         formLayout_3 = new QFormLayout(formLayoutWidget_2);
         formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
         formLayout_3->setContentsMargins(0, 0, 0, 0);
-        tableView = new QTableView(formLayoutWidget_2);
-        tableView->setObjectName(QString::fromUtf8("tableView"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
 
-        formLayout_3->setWidget(0, QFormLayout::SpanningRole, tableView);
+        formLayout_3->setLayout(0, QFormLayout::FieldRole, horizontalLayout_3);
 
         buttonBox_3 = new QDialogButtonBox(formLayoutWidget_2);
         buttonBox_3->setObjectName(QString::fromUtf8("buttonBox_3"));
         buttonBox_3->setStandardButtons(QDialogButtonBox::Close);
 
-        formLayout_3->setWidget(1, QFormLayout::SpanningRole, buttonBox_3);
+        formLayout_3->setWidget(3, QFormLayout::FieldRole, buttonBox_3);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout_3->setItem(2, QFormLayout::FieldRole, verticalSpacer);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+
+        formLayout_3->setLayout(1, QFormLayout::FieldRole, horizontalLayout_5);
 
         stackedWidget->addWidget(page_3);
         MainWindow->setCentralWidget(centralwidget);

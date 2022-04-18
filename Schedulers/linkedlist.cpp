@@ -2,7 +2,8 @@
 
 LinkedList::LinkedList()
 {
-
+    head = nullptr;
+    tail = nullptr;
 }
 
 LinkedList::LinkedList(int name , int s , int e)
