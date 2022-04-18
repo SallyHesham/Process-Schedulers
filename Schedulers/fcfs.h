@@ -13,7 +13,7 @@ private:
 public:
     
     fcfs (Process processes [] , int n);
-    list gantt_chart();
+    linkedlist gantt_chart();
     double waiting_time ();
     double turnarround_time();
     };
