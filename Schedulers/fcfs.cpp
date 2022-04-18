@@ -1,4 +1,5 @@
 #include "fcfs.h"
+#include <functional>
 
  void swap(Process * &a, Process * &b)
 {
@@ -6,7 +7,7 @@
     a = b;
     b = temp;*/
     
-    ::std::swap(a,b);
+    std::swap(a,b);
 }
 
 
@@ -42,11 +43,11 @@ fcfs::fcfs (Process *processes[] , int n)
 
 LinkedList fcfs::gantt_chart()
 {
-        LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst());
+        LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst(), process[0]->get_entry());
         int count = process[0]->get_entry() + process[0]->get_burst();
         for (int i = 1 ; i <= size ; i++){
             count += process[i]->get_burst();
-            gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count);
+            gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count, process[i]->get_entry());
             }
             return gantt;
 }
@@ -60,7 +61,7 @@ double fcfs::waiting_time ()
             waiting +=count - process[i]->get_entry();
             count += process[i]->get_burst();
             }
-        return (waiting/size);
+        return (waiting/size+1);
 }
 
 

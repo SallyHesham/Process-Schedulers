@@ -1,5 +1,7 @@
 #ifndef PROCESS_H
 #define PROCESS_H
+#include "linkedlist.h"
+#include "node.h"
 //#include <string>
 //using namespace std;
 
@@ -27,6 +29,7 @@ public:
     int get_name();
     int get_end_time();
     void set_end_time(int t);
+    static double awt(LinkedList list, int n);
 };
 
 

@@ -9,8 +9,8 @@ private:
     Node* tail;
 public:
     LinkedList();
-    LinkedList(int name , int s , int e);
-    void add_node(int n, int s, int e);
+    LinkedList(int name , int s , int e, int a);
+    void add_node(int n, int s, int e, int a);
     Node* get_head();
     Node* get_tail();
 };
