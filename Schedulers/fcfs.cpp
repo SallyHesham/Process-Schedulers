@@ -10,9 +10,9 @@ fcfs::fcfs (Process processes [] , int n)
 }
         
         
-linkedlist fcfs::gantt_chart() 
+LinkedList fcfs::gantt_chart() 
 {
-        linkedlist gantt (process[0].get_name(),process[0].get_entry(),process[0].get_burst());
+        LinkedList gantt (process[0].get_name(),process[0].get_entry(),process[0].get_burst());
         int count = process[0].get_entry() + process[0].get_burst();
         for (int i = 1 ; i <= size ; i++){
             count += process[i].get_burst();
