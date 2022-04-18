@@ -1,7 +1,8 @@
 #include "linkedlist.h"
 
-LinkedList::LinkedList()
+LinkedList::LinkedList(int name , int s , int e)
 {
+ chain= new node(name,s,e);
 
 }
 
