@@ -54,9 +54,10 @@ public:
     QWidget *formLayoutWidget_2;
     QFormLayout *formLayout_3;
     QHBoxLayout *horizontalLayout_3;
-    QDialogButtonBox *buttonBox_3;
-    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_5;
+    QLabel *label_5;
+    QSpacerItem *verticalSpacer;
+    QDialogButtonBox *buttonBox_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -202,22 +203,28 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
 
-        formLayout_3->setLayout(0, QFormLayout::FieldRole, horizontalLayout_3);
+        formLayout_3->setLayout(0, QFormLayout::SpanningRole, horizontalLayout_3);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+
+        formLayout_3->setLayout(1, QFormLayout::SpanningRole, horizontalLayout_5);
+
+        label_5 = new QLabel(formLayoutWidget_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setFont(font1);
+
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_5);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout_3->setItem(2, QFormLayout::FieldRole, verticalSpacer);
 
         buttonBox_3 = new QDialogButtonBox(formLayoutWidget_2);
         buttonBox_3->setObjectName(QString::fromUtf8("buttonBox_3"));
         buttonBox_3->setStandardButtons(QDialogButtonBox::Close);
 
         formLayout_3->setWidget(3, QFormLayout::FieldRole, buttonBox_3);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        formLayout_3->setItem(2, QFormLayout::FieldRole, verticalSpacer);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-
-        formLayout_3->setLayout(1, QFormLayout::FieldRole, horizontalLayout_5);
 
         stackedWidget->addWidget(page_3);
         MainWindow->setCentralWidget(centralwidget);
@@ -262,6 +269,7 @@ public:
 
         label_3->setText(QCoreApplication::translate("MainWindow", "Please enter processes' information:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Quantum:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Average Waiting Time:", nullptr));
     } // retranslateUi
 
 };
