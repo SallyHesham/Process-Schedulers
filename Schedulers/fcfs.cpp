@@ -1,5 +1,32 @@
 #include "fcfs.h"
 
+ void swap(Process * &a, Process * &b)
+{
+   /* Process temp = a;
+    a = b;
+    b = temp;*/
+    
+    ::std::swap(a,b);
+}
+
+
+void arrsort (Process *processes[] , int size){
+    
+    for (int iter = 0 ; iter < size-1 ; iter++){
+        bool swapped = false;
+    for (int i = 0 ; i < size-1-iter ;i++ ){
+        if (processes[i]->get_entry() > processes[i+1]->get_entry()){
+        swap(processes[i],processes[i+1]);
+            swapped = true;
+            }
+        if (!swapped){
+            return;
+            }
+        }
+                } 
+    
+    }
+
 fcfs::fcfs (Process *processes[] , int n)
 {
     process = processes;
@@ -9,6 +36,7 @@ fcfs::fcfs (Process *processes[] , int n)
             process[i] = processes[i];
             }*/
             size = n-1;
+      arrsort(process,size+1);
 }
 
 
