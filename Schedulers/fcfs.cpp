@@ -16,7 +16,7 @@ linkedlist fcfs::gantt_chart()
         int count = process[0].get_entry() + process[0].get_burst();
         for (int i = 1 ; i <= size ; i++){
             count += process[i].get_burst();
-            gantt.add(process[i].get_name(),count-process[i].get_burst(), count);
+            gantt.add_node (process[i].get_name(),count-process[i].get_burst(), count);
             }
             return gantt;
 }
