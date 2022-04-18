@@ -9,12 +9,12 @@
 class fcfs {
 private:
     int size;
-    Process process[];
+    Process** process;
    
    
 public:
     
-    fcfs (Process processes[], int n);
+    fcfs (Process *processes[], int n);
     LinkedList gantt_chart();
     double waiting_time ();
     double turnarround_time();

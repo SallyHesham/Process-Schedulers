@@ -4,6 +4,7 @@
 #include "linkedlist.h"
 #include "node.h"
 #include "fcfs.h"
+#include "Priority.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -83,9 +84,9 @@ void MainWindow::on_buttonBox_2_accepted()
         }
     }
     LinkedList list;
-/*
+
     if (selected_scheduler == "First Come First Serve"){
-        fcfs* scheduler = new fcfs(*arr, num_of_processes);
+        fcfs* scheduler = new fcfs(arr, num_of_processes);
         list = scheduler->gantt_chart();
 
     } else if (selected_scheduler == "Round Robin"){
@@ -93,16 +94,18 @@ void MainWindow::on_buttonBox_2_accepted()
     } else if (selected_scheduler == "Priority (preemptive)"){
 
     } else if (selected_scheduler == "Priority (non-preemptive)"){
+        Priority* scheduler = new Priority(arr, num_of_processes);
+        list = scheduler->gantt_chart();
 
     } else if (selected_scheduler == "Shortest Job First (preemptive)"){
 
     } else if (selected_scheduler == "Shortest Job First (non-preemptive)"){
 
     } else {QApplication::quit();}
-*/
+
     //for testing
-    list.add_node(1, 0, 2);
-    list.add_node(2, 2, 5);
+    //list.add_node(1, 0, 2);
+    //list.add_node(2, 2, 5);
     //end testing
     Node* node = list.get_head();
     int num_of_slots = 0;
