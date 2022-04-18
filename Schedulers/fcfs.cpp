@@ -1,5 +1,5 @@
 #include "fcfs.h"
-   
+
 fcfs::fcfs (Process processes [] , int n)
 {
 
@@ -9,7 +9,7 @@ fcfs::fcfs (Process processes [] , int n)
             }
             size = n-1;
 }
-        
+
 
 LinkedList fcfs::gantt_chart()
 {
@@ -21,8 +21,8 @@ LinkedList fcfs::gantt_chart()
             }
             return gantt;
 }
-    
-    
+
+
 double fcfs::waiting_time ()
 {
         double count = process[0].get_entry() + process[0].get_burst();
@@ -33,9 +33,9 @@ double fcfs::waiting_time ()
             }
         return (waiting/size);
 }
-    
-    
-    
+
+
+
 double fcfs::turnarround_time()
 {
      double count = process[0].get_entry() + process[0].get_burst();
