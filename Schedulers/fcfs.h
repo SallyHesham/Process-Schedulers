@@ -1,8 +1,8 @@
 #include "process.h"
-#include "node1.h"
-#include "list.h"
-#include <string>
-using namespace std;
+#include "node.h"
+#include "linkedlist.h"
+// #include <string>
+// using namespace std;
 
 class fcfs {
 private:
