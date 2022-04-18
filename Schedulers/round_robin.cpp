@@ -3,7 +3,7 @@
 round_robin::round_robin(Process* processes[], int n, int quan)
 {
     process = processes;
-    size = n-1;
+    size = n;
     q = quan;
 }
 
