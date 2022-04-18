@@ -119,6 +119,12 @@ void MainWindow::on_buttonBox_2_accepted()
     for(int slot = 0; slot < num_of_slots; slot++){
         int dur = node->get_end() - node->get_start();
         //ui->horizontalLayout_3->addWidget(, dur);
+
+        QLabel* pLabel = new QLabel("P"+QString::number(node->get_name()));
+        pLabel->setStyleSheet("QLabel { background-color : cyan; color : black; }");
+        pLabel->setAlignment(Qt::AlignCenter);
+        ui->horizontalLayout_3->addWidget(pLabel, dur);
+
         ui->horizontalLayout_5->addStretch(dur);
         ui->horizontalLayout_5->addWidget(new QLabel(QString::number(node->get_end())));
         node = node->get_next();
