@@ -1,9 +1,15 @@
 #include "linkedlist.h"
 
+LinkedList::LinkedList()
+{
+
+}
+
 LinkedList::LinkedList(int name , int s , int e)
 {
- chain= new node(name,s,e);
-
+     Node* node = new Node(name, s, e);
+     this->head = node;
+     this->tail = node;
 }
 
 void LinkedList::add_node(int n, int s, int e)

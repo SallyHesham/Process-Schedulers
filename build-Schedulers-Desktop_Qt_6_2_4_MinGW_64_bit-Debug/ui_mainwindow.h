@@ -22,6 +22,7 @@
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
@@ -48,6 +49,11 @@ public:
     QTableWidget *tableWidget;
     QLabel *label_4;
     QSpinBox *spinBox_2;
+    QWidget *page_3;
+    QWidget *formLayoutWidget_2;
+    QFormLayout *formLayout_3;
+    QTableView *tableView;
+    QDialogButtonBox *buttonBox_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -55,7 +61,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(632, 436);
+        MainWindow->resize(700, 440);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -67,7 +73,7 @@ public:
         centralwidget->setSizePolicy(sizePolicy);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, 0, 631, 411));
+        stackedWidget->setGeometry(QRect(0, 0, 691, 401));
         sizePolicy.setHeightForWidth(stackedWidget->sizePolicy().hasHeightForWidth());
         stackedWidget->setSizePolicy(sizePolicy);
         page = new QWidget();
@@ -76,7 +82,7 @@ public:
         page->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(page);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(9, 9, 611, 371));
+        gridLayoutWidget->setGeometry(QRect(9, 9, 681, 391));
         formLayout = new QFormLayout(gridLayoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
@@ -144,7 +150,7 @@ public:
         page_2->setObjectName(QString::fromUtf8("page_2"));
         formLayoutWidget = new QWidget(page_2);
         formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(9, 9, 611, 371));
+        formLayoutWidget->setGeometry(QRect(9, 9, 681, 391));
         formLayout_2 = new QFormLayout(formLayoutWidget);
         formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
         formLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -182,10 +188,30 @@ public:
         formLayout_2->setWidget(1, QFormLayout::FieldRole, spinBox_2);
 
         stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        formLayoutWidget_2 = new QWidget(page_3);
+        formLayoutWidget_2->setObjectName(QString::fromUtf8("formLayoutWidget_2"));
+        formLayoutWidget_2->setGeometry(QRect(9, 9, 681, 391));
+        formLayout_3 = new QFormLayout(formLayoutWidget_2);
+        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
+        formLayout_3->setContentsMargins(0, 0, 0, 0);
+        tableView = new QTableView(formLayoutWidget_2);
+        tableView->setObjectName(QString::fromUtf8("tableView"));
+
+        formLayout_3->setWidget(0, QFormLayout::SpanningRole, tableView);
+
+        buttonBox_3 = new QDialogButtonBox(formLayoutWidget_2);
+        buttonBox_3->setObjectName(QString::fromUtf8("buttonBox_3"));
+        buttonBox_3->setStandardButtons(QDialogButtonBox::Close);
+
+        formLayout_3->setWidget(1, QFormLayout::SpanningRole, buttonBox_3);
+
+        stackedWidget->addWidget(page_3);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 632, 17));
+        menubar->setGeometry(QRect(0, 0, 700, 17));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -193,7 +219,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
         listWidget->setCurrentRow(0);
 
 

@@ -1,3 +1,5 @@
+#ifndef FCFS_H
+#define FCFS_H
 #include "process.h"
 #include "node.h"
 #include "linkedlist.h"
@@ -7,13 +9,13 @@
 class fcfs {
 private:
     int size;
-    Process *process  ;
+    Process process[];
    
    
 public:
     
-    fcfs (Process processes [] , int n);
-    linkedlist gantt_chart();
+    fcfs (Process processes[], int n);
+    LinkedList gantt_chart();
     double waiting_time ();
     double turnarround_time();
     };

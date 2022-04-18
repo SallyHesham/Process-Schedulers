@@ -26,6 +26,8 @@ private slots:
 
     void on_buttonBox_2_accepted();
 
+    void on_buttonBox_3_rejected();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "process.h"
-
+#include "linkedlist.h"
+#include "node.h"
+#include "fcfs.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -53,7 +55,7 @@ void MainWindow::on_buttonBox_accepted()
 
 void MainWindow::on_buttonBox_2_accepted()
 {
-    Process* arr[num_of_processes];
+    Process *arr[num_of_processes];
     quantum = ui->spinBox_2->value();
     int e = 0; int b = 0; int p = 0;
 
@@ -80,7 +82,40 @@ void MainWindow::on_buttonBox_2_accepted()
             arr[row] = new Process(e, b);
         }
     }
+    LinkedList list;
+    if (selected_scheduler == "First Come First Serve"){
+        fcfs* scheduler = new fcfs(*arr, num_of_processes);
+        list = scheduler->gantt_chart();
 
+    } else if (selected_scheduler == "Round Robin"){
+
+    } else if (selected_scheduler == "Priority (preemptive)"){
+
+    } else if (selected_scheduler == "Priority (non-preemptive)"){
+
+    } else if (selected_scheduler == "Shortest Job First (preemptive)"){
+
+    } else if (selected_scheduler == "Shortest Job First (non-preemptive)"){
+
+    } else {QApplication::quit();}
+
+    Node* node = list.get_head();
+    int num_of_slots = 0;
+    while(node != nullptr){
+        num_of_slots++;
+        node = node->get_next();
+    }
+    ui->tableWidget_2->setRowCount(2);
+    ui->tableWidget_2->setColumnCount(num_of_slots);
     ui->stackedWidget->setCurrentIndex(2);
+    for(int slot = 0; slot < num_of_slots; slot++){
+        ui->tableWidget_2->setItem(0, slot, )
+    }
+}
+
+void MainWindow::on_buttonBox_3_rejected()
+{
+
+    QApplication::quit();
 }
 

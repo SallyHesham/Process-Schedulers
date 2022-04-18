@@ -8,6 +8,7 @@ private:
     Node* head;
     Node* tail;
 public:
+    LinkedList();
     LinkedList(int name , int s , int e);
     void add_node(int n, int s, int e);
     Node* get_head();
