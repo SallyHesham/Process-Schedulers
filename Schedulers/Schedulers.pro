@@ -15,7 +15,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     node.cpp \
-    process.cpp
+    process.cpp \
+    round_robin.cpp
 
 HEADERS += \
     Priority.h \
@@ -23,7 +24,8 @@ HEADERS += \
     linkedlist.h \
     mainwindow.h \
     node.h \
-    process.h
+    process.h \
+    round_robin.h
 
 FORMS += \
     mainwindow.ui

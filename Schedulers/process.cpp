@@ -61,3 +61,13 @@ int Process::get_name()
 {
     return name;
 }
+
+int Process::get_end_time()
+{
+    return end_time;
+}
+
+void Process::set_end_time(int t)
+{
+    end_time = t;
+}

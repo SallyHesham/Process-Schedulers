@@ -13,6 +13,7 @@ private:
     int time_left;
     //static int num;
     int get_num();
+    int end_time;
 
 public:
     Process(int e, int b);
@@ -24,6 +25,8 @@ public:
     int get_priority();
     int get_time_left();
     int get_name();
+    int get_end_time();
+    void set_end_time(int t);
 };
 
 

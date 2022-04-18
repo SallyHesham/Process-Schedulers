@@ -5,6 +5,7 @@
 #include "node.h"
 #include "fcfs.h"
 #include "Priority.h"
+#include "round_robin.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -90,6 +91,8 @@ void MainWindow::on_buttonBox_2_accepted()
         list = scheduler->gantt_chart();
 
     } else if (selected_scheduler == "Round Robin"){
+        round_robin* scheduler = new round_robin(arr, num_of_processes, quantum);
+        list = scheduler->gantt_chart();
 
     } else if (selected_scheduler == "Priority (preemptive)"){
 
