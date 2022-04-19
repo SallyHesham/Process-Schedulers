@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 //#include <string>
+#include "log.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -18,6 +19,7 @@ public:
     QString selected_scheduler;
     int num_of_processes;
     int quantum;
+    void draw(list<Log*> log);
 
 private slots:
 

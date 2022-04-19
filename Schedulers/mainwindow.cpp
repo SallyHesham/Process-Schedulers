@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "scheduler.h"
+#include "processf.h"
 #include "ui_mainwindow.h"
 #include "process.h"
 #include "linkedlist.h"
@@ -6,6 +8,12 @@
 #include "fcfs.h"
 #include "Priority.h"
 #include "round_robin.h"
+#include "vec.h"
+
+vector <int> vn;
+vector <double> vs;
+vector <double> ve;
+double wt;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -61,6 +69,8 @@ void MainWindow::on_buttonBox_2_accepted()
     quantum = ui->spinBox_2->value();
     int e = 0; int b = 0; int p = 0;
 
+     list<processf*> processes;
+
     for(int row = 0; row < num_of_processes; row ++){
 
         for(int col = 0; col < ui->tableWidget->columnCount(); col++){
@@ -79,32 +89,48 @@ void MainWindow::on_buttonBox_2_accepted()
 
         if(ui->tableWidget->columnCount() == 3){
             arr[row] = new Process(e, b, p);
+            processf* pr = new processf(arr[row]->get_name(), e, b, p);
+                    processes.push_back(pr);
         }
         else{
             arr[row] = new Process(e, b);
+            processf* pr = new processf(arr[row]->get_name(), e, b, b);
+                    processes.push_back(pr);
         }
     }
+
+    Scheduler* schedulerf = new Scheduler(processes);
+
     LinkedList list;
     double awt = 0;
+    bool jump = true;
+
     if (selected_scheduler == "First Come First Serve"){
         fcfs* scheduler = new fcfs(arr, num_of_processes);
         list = scheduler->gantt_chart();
         //awt = scheduler->waiting_time();
+        jump = false;
 
     } else if (selected_scheduler == "Round Robin"){
         round_robin* scheduler = new round_robin(arr, num_of_processes, quantum);
         list = scheduler->gantt_chart();
         //awt = scheduler->waiting_time();
+        jump = false;
 
     } else if (selected_scheduler == "Priority (preemptive)"){
+        schedulerf->priority(true);
 
     } else if (selected_scheduler == "Priority (non-preemptive)"){
-        Priority* scheduler = new Priority(arr, num_of_processes);
-        list = scheduler->gantt_chart();
+       schedulerf->priority(false);
+       //MainWindow::draw(schedulerf->getLog());
+        //delete schedulerf;
+       //return;
 
     } else if (selected_scheduler == "Shortest Job First (preemptive)"){
+        schedulerf->priority(true);
 
     } else if (selected_scheduler == "Shortest Job First (non-preemptive)"){
+        schedulerf->priority(false);
 
     } else {QApplication::quit();}
 
@@ -112,30 +138,55 @@ void MainWindow::on_buttonBox_2_accepted()
     //list.add_node(1, 0, 2);
     //list.add_node(2, 2, 5);
     //end testing
-    Node* node = list.get_head();
-    int num_of_slots = 0;
-    while(node != nullptr){
-        num_of_slots++;
-        node = node->get_next();
+    if(!jump){
+        Node* node = list.get_head();
+        int num_of_slots = 0;
+        while(node != nullptr){
+            num_of_slots++;
+            node = node->get_next();
+        }
+        node = list.get_head();
+
+        ui->horizontalLayout_5->addWidget(new QLabel(QString::number(0)));
+        for(int slot = 0; slot < num_of_slots; slot++){
+            int dur = node->get_end() - node->get_start();
+            //ui->horizontalLayout_3->addWidget(, dur);
+
+            QLabel* pLabel = new QLabel("P"+QString::number(node->get_name()));
+            pLabel->setStyleSheet("QLabel { background-color : cyan; color : black; }");
+            pLabel->setAlignment(Qt::AlignCenter);
+            ui->horizontalLayout_3->addWidget(pLabel, dur);
+
+            ui->horizontalLayout_5->addStretch(dur);
+            ui->horizontalLayout_5->addWidget(new QLabel(QString::number(node->get_end())));
+            node = node->get_next();
+        }
+        awt = Process::awt(list, num_of_processes);
+        ui->label_5->setText("Average Waiting Time: "+QString::number(awt));
+        ui->stackedWidget->setCurrentIndex(2);
     }
-    node = list.get_head();
+    else{
 
-    ui->horizontalLayout_5->addWidget(new QLabel(QString::number(0)));
-    for(int slot = 0; slot < num_of_slots; slot++){
-        int dur = node->get_end() - node->get_start();
-        //ui->horizontalLayout_3->addWidget(, dur);
+        int num_of_slots = vn.size();
 
-        QLabel* pLabel = new QLabel("P"+QString::number(node->get_name()));
-        pLabel->setStyleSheet("QLabel { background-color : cyan; color : black; }");
-        pLabel->setAlignment(Qt::AlignCenter);
-        ui->horizontalLayout_3->addWidget(pLabel, dur);
 
-        ui->horizontalLayout_5->addStretch(dur);
-        ui->horizontalLayout_5->addWidget(new QLabel(QString::number(node->get_end())));
-        node = node->get_next();
+        ui->horizontalLayout_5->addWidget(new QLabel(QString::number(0)));
+        for(int slot = 0; slot < num_of_slots; slot++){
+            int dur = ve[slot] - vs[slot];
+            //ui->horizontalLayout_3->addWidget(, dur);
+
+            QLabel* pLabel = new QLabel("P"+QString::number(vn[slot]));
+            pLabel->setStyleSheet("QLabel { background-color : cyan; color : black; }");
+            pLabel->setAlignment(Qt::AlignCenter);
+            ui->horizontalLayout_3->addWidget(pLabel, dur);
+
+            ui->horizontalLayout_5->addStretch(dur);
+            ui->horizontalLayout_5->addWidget(new QLabel(QString::number(ve[slot])));
+        }
+        //awt = Process::awt(list, num_of_processes);
+        ui->label_5->setText("Average Waiting Time: "+QString::number(wt/num_of_processes));
+        ui->stackedWidget->setCurrentIndex(2);
     }
-    awt = Process::awt(list, num_of_processes);
-    ui->label_5->setText("Average Waiting Time: "+QString::number(awt));
     ui->stackedWidget->setCurrentIndex(2);
 }
 

@@ -1,0 +1,10 @@
+release/Priority.o
+release/fcfs.o
+release/linkedlist.o
+release/main.o
+release/mainwindow.o
+release/node.o
+release/priorityf.o
+release/process.o
+release/round_robin.o
+release/moc_mainwindow.o
