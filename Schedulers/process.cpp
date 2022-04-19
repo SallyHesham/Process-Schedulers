@@ -71,3 +71,25 @@ void Process::set_end_time(int t)
 {
     end_time = t;
 }
+
+double Process::awt(LinkedList list, int n)
+{
+    int arr[n];
+    double res = 0;
+    for(int i = 0; i <= n; i++){
+        arr[i] = -1;
+    }
+    int index = 0;
+    Node* node = list.get_head();
+    while(node != nullptr){
+        index = node->get_name();
+        if (arr[index] == -1) {
+            arr[index] = node->get_start() - node->get_entry();
+        }
+        node = node->get_next();
+    }
+    for(int i = 1; i <= n; i++){
+        res += arr[i];
+    }
+    return(res/n);
+}

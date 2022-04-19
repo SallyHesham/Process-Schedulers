@@ -29,7 +29,7 @@ LinkedList Priority::gantt_chart() {
         }
         if (idx!=-1){
             int endtime=current_time+p[idx]->get_burst();
-            chart.add_node(p[idx]->get_name(),current_time,endtime);
+            chart.add_node(p[idx]->get_name(),current_time,endtime, p[idx]->get_entry());
             is_completed[idx] = 1;
             current_time=endtime;
         }
