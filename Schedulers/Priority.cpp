@@ -2,14 +2,15 @@
 #include "Priority.h"
 Priority::Priority(Process *x[], int n) {
     size=n;
-    for(int i=0;i<size;i++){
+    /*for(int i=0;i<size;i++){
         p[i]=x[i];
-    }
+    }*/
+    p = x;
 }
 LinkedList Priority::gantt_chart() {
     int is_completed[100];
     int current_time = 0;
-    int completed = 0;
+    //int completed = 0;
   for(int i=0;i<size;i++){
         int idx = -1;
         int mx=100000;
