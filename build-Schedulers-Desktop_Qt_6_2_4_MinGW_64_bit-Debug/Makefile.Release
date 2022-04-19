@@ -291,14 +291,14 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 release/Priority.o: ../Schedulers/Priority.cpp ../Schedulers/Priority.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Priority.o ..\Schedulers\Priority.cpp
 
 release/fcfs.o: ../Schedulers/fcfs.cpp ../Schedulers/fcfs.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\fcfs.o ..\Schedulers\fcfs.cpp
 
 release/linkedlist.o: ../Schedulers/linkedlist.cpp ../Schedulers/linkedlist.h \
@@ -673,13 +673,15 @@ release/mainwindow.o: ../Schedulers/mainwindow.cpp ../Schedulers/mainwindow.h \
 release/node.o: ../Schedulers/node.cpp ../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\node.o ..\Schedulers\node.cpp
 
-release/process.o: ../Schedulers/process.cpp ../Schedulers/process.h
+release/process.o: ../Schedulers/process.cpp ../Schedulers/process.h \
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\process.o ..\Schedulers\process.cpp
 
 release/round_robin.o: ../Schedulers/round_robin.cpp ../Schedulers/round_robin.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\round_robin.o ..\Schedulers\round_robin.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

@@ -21,13 +21,13 @@ LinkedList round_robin::gantt_chart()
 
             else if (process[i]->get_time_left() - q > 0) {
                 count += q;
-                gantt.add_node(process[i]->get_name(), count - q, count);
+                gantt.add_node(process[i]->get_name(), count - q, count, process[i]->get_entry());
                 process[i]->set_time_left(process[i]->get_time_left() - q);
             }
 
             else {
                 count += process[i]->get_time_left();
-                gantt.add_node(process[i]->get_name(), count - process[i]->get_time_left(), count);
+                gantt.add_node(process[i]->get_name(), count - process[i]->get_time_left(), count, process[i]->get_entry());
                 process[i]->set_time_left(0);
                 process[i]->set_end_time(count);
                 done++;

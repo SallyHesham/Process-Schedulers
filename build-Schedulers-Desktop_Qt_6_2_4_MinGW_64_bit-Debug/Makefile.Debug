@@ -291,14 +291,14 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 debug/Priority.o: ../Schedulers/Priority.cpp ../Schedulers/Priority.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Priority.o ..\Schedulers\Priority.cpp
 
 debug/fcfs.o: ../Schedulers/fcfs.cpp ../Schedulers/fcfs.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\fcfs.o ..\Schedulers\fcfs.cpp
 
 debug/linkedlist.o: ../Schedulers/linkedlist.cpp ../Schedulers/linkedlist.h \
@@ -673,13 +673,15 @@ debug/mainwindow.o: ../Schedulers/mainwindow.cpp ../Schedulers/mainwindow.h \
 debug/node.o: ../Schedulers/node.cpp ../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\node.o ..\Schedulers\node.cpp
 
-debug/process.o: ../Schedulers/process.cpp ../Schedulers/process.h
+debug/process.o: ../Schedulers/process.cpp ../Schedulers/process.h \
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\process.o ..\Schedulers\process.cpp
 
 debug/round_robin.o: ../Schedulers/round_robin.cpp ../Schedulers/round_robin.h \
 		../Schedulers/process.h \
-		../Schedulers/node.h \
-		../Schedulers/linkedlist.h
+		../Schedulers/linkedlist.h \
+		../Schedulers/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\round_robin.o ..\Schedulers\round_robin.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
