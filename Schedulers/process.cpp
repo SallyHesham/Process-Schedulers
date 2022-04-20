@@ -83,9 +83,9 @@ double Process::awt(LinkedList list, int n)
     Node* node = list.get_head();
     while(node != nullptr){
         index = node->get_name();
-        if (arr[index] == -1) {
-            arr[index] = node->get_start() - node->get_entry();
-        }
+
+        arr[index] = node->get_end() - node->get_entry() - node->get_burst();
+
         node = node->get_next();
     }
     for(int i = 1; i <= n; i++){

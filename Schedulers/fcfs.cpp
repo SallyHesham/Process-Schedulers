@@ -43,11 +43,11 @@ fcfs::fcfs (Process *processes[] , int n)
 
 LinkedList fcfs::gantt_chart()
 {
-        LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst(), process[0]->get_entry());
+        LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst(), process[0]->get_entry(), process[0]->get_burst());
         int count = process[0]->get_entry() + process[0]->get_burst();
         for (int i = 1 ; i <= size ; i++){
             count += process[i]->get_burst();
-            gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count, process[i]->get_entry());
+            gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count, process[i]->get_entry(), process[i]->get_burst());
             }
             return gantt;
 }

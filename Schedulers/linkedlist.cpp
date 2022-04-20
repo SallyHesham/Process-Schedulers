@@ -6,16 +6,16 @@ LinkedList::LinkedList()
     tail = nullptr;
 }
 
-LinkedList::LinkedList(int name , int s , int e, int a)
+LinkedList::LinkedList(int name , int s , int e, int a, int b)
 {
-     Node* node = new Node(name, s, e, a);
+     Node* node = new Node(name, s, e, a, b);
      this->head = node;
      this->tail = node;
 }
 
-void LinkedList::add_node(int n, int s, int e, int a)
+void LinkedList::add_node(int n, int s, int e, int a, int b)
 {
-    Node* node = new Node(n, s, e, a);
+    Node* node = new Node(n, s, e, a, b);
     if (!this->head) {
         this->head = node;
     }
