@@ -118,19 +118,19 @@ void MainWindow::on_buttonBox_2_accepted()
         jump = false;
 
     } else if (selected_scheduler == "Priority (preemptive)"){
-        schedulerf->priority(true);
+        schedulerf->priority(true, false);
 
     } else if (selected_scheduler == "Priority (non-preemptive)"){
-       schedulerf->priority(false);
+       schedulerf->priority(false, false);
        //MainWindow::draw(schedulerf->getLog());
         //delete schedulerf;
        //return;
 
     } else if (selected_scheduler == "Shortest Job First (preemptive)"){
-        schedulerf->priority(true);
+        schedulerf->priority(true, true);
 
     } else if (selected_scheduler == "Shortest Job First (non-preemptive)"){
-        schedulerf->priority(false);
+        schedulerf->priority(false, true);
 
     } else {QApplication::quit();}
 

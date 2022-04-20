@@ -104,6 +104,9 @@ public:
     size_t getPID() {
         return _pid;
     }
+    void setPriority(int p) {
+        _priority = p;
+    }
 
 private:
     size_t _pid;

@@ -51,7 +51,7 @@ public:
 
     void sjf(bool prempt=false);
     void fcfs();
-    void priority(bool prempt=false);
+    void priority(bool prempt=false, bool sjf=false);
     void roundRobin(double quantum);
 
     list<Log*> getLog(){

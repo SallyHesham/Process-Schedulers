@@ -16,7 +16,7 @@
     });
  };
 
-void Scheduler::priority(bool prempt) {
+void Scheduler::priority(bool prempt, bool sjf) {
     double totalWaiting = 0;
 
     sortPriority();
@@ -39,6 +39,7 @@ void Scheduler::priority(bool prempt) {
             if (_queue.front() != top)
             {
                 stop(top);
+                if(sjf == true){top->setPriority(top->getRemainingTime(current_time));}
                 top = _queue.front();
             }
 
