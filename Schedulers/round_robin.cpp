@@ -19,6 +19,9 @@ LinkedList round_robin::gantt_chart()
             if (process[i]->get_time_left() == 0)
                 continue;
 
+            else if (process[i]->get_entry() > count)
+                            continue;
+
             else if (process[i]->get_time_left() - q > 0) {
                 count += q;
                 gantt.add_node(process[i]->get_name(), count - q, count, process[i]->get_entry(), process[i]->get_burst());
