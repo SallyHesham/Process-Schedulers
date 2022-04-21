@@ -5,7 +5,7 @@
 
 class Node
 {
-public:
+private:
     int name;
     int start;
     int end;

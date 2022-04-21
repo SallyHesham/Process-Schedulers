@@ -40,6 +40,8 @@ public:
         //cout << "[" << _pid << "] Started at " << _startTime << endl;
         vn.push_back(_pid);
         vs.push_back(_startTime);
+        va.push_back(_arrivalTime);
+        vb.push_back(_burstTime);
     }
 
     void stop(double time) {

@@ -13,6 +13,8 @@
 vector <int> vn;
 vector <double> vs;
 vector <double> ve;
+vector <double> va;
+vector <double> vb;
 double wt;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -20,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->label_6->setStyleSheet("QLabel { color : red; }");
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -40,17 +43,17 @@ void MainWindow::on_buttonBox_accepted()
     QStringList vl;
     if ((selected_scheduler == "Priority (preemptive)") || (selected_scheduler == "Priority (non-preemptive)")) {
         c = 3;
-        hl = {"Entry Time", "Burst Time", "Priority"};
+        hl = {"Arrival Time", "Burst Time", "Priority"};
     }
     else if ((selected_scheduler == "Round Robin")){
         c = 2;
-        hl = {"Entry Time", "Burst Time"};
+        hl = {"Arrival Time", "Burst Time"};
         ui->label_4->setEnabled(true);
         ui->spinBox_2->setEnabled(true);
     }
     else {
         c = 2;
-        hl = {"Entry Time", "Burst Time"};
+        hl = {"Arrival Time", "Burst Time"};
     }
     for (int i = 1; i <= num_of_processes; i++){
         vl << "P" + QString::number(i);
@@ -183,8 +186,8 @@ void MainWindow::on_buttonBox_2_accepted()
             ui->horizontalLayout_5->addStretch(dur);
             ui->horizontalLayout_5->addWidget(new QLabel(QString::number(ve[slot])));
         }
-        //awt = Process::awt(list, num_of_processes);
-        ui->label_5->setText("Average Waiting Time: "+QString::number(wt/num_of_processes));
+        awt = Process::awt(num_of_processes);
+        ui->label_5->setText("Average Waiting Time: "+QString::number(awt));
         ui->stackedWidget->setCurrentIndex(2);
     }
     ui->stackedWidget->setCurrentIndex(2);

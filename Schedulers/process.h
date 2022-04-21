@@ -30,6 +30,7 @@ public:
     int get_end_time();
     void set_end_time(int t);
     static double awt(LinkedList list, int n);
+    static double awt(int n);
 };
 
 

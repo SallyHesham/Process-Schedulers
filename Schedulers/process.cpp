@@ -1,4 +1,5 @@
 #include "process.h"
+#include "vec.h"
 
 //int Process::num = 0;
 
@@ -87,6 +88,26 @@ double Process::awt(LinkedList list, int n)
         arr[index] = node->get_end() - node->get_entry() - node->get_burst();
 
         node = node->get_next();
+    }
+    for(int i = 1; i <= n; i++){
+        res += arr[i];
+    }
+    return(res/n);
+}
+
+double Process::awt(int n)
+{
+    int arr[n];
+    double res = 0;
+    for(int i = 0; i <= n; i++){
+        arr[i] = -1;
+    }
+    int index = 0;
+
+    for(int i = 0; i < (int)vn.size(); i++){
+        index = vn[i];
+
+        arr[index] = ve[i] - va[i] - vb[i];
     }
     for(int i = 1; i <= n; i++){
         res += arr[i];

@@ -621,7 +621,8 @@ debug/priorityf.o: ../Schedulers/priorityf.cpp ../Schedulers/scheduler.h \
 
 debug/process.o: ../Schedulers/process.cpp ../Schedulers/process.h \
 		../Schedulers/linkedlist.h \
-		../Schedulers/node.h
+		../Schedulers/node.h \
+		../Schedulers/vec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\process.o ..\Schedulers\process.cpp
 
 debug/round_robin.o: ../Schedulers/round_robin.cpp ../Schedulers/round_robin.h \

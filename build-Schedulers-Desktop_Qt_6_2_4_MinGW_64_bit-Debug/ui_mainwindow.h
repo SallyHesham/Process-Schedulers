@@ -50,6 +50,7 @@ public:
     QTableWidget *tableWidget;
     QLabel *label_4;
     QSpinBox *spinBox_2;
+    QLabel *label_6;
     QWidget *page_3;
     QWidget *formLayoutWidget_2;
     QFormLayout *formLayout_3;
@@ -162,7 +163,7 @@ public:
         buttonBox_2->setObjectName(QString::fromUtf8("buttonBox_2"));
         buttonBox_2->setStandardButtons(QDialogButtonBox::Ok);
 
-        formLayout_2->setWidget(3, QFormLayout::SpanningRole, buttonBox_2);
+        formLayout_2->setWidget(4, QFormLayout::SpanningRole, buttonBox_2);
 
         label_3 = new QLabel(formLayoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -190,6 +191,15 @@ public:
         spinBox_2->setMinimum(1);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, spinBox_2);
+
+        label_6 = new QLabel(formLayoutWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        QFont font2;
+        font2.setPointSize(10);
+        font2.setBold(true);
+        label_6->setFont(font2);
+
+        formLayout_2->setWidget(3, QFormLayout::SpanningRole, label_6);
 
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
@@ -238,7 +248,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         listWidget->setCurrentRow(0);
 
 
@@ -269,6 +279,7 @@ public:
 
         label_3->setText(QCoreApplication::translate("MainWindow", "Please enter processes' information:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Quantum:", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Do not enter non numeric characters or negative numbers.", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Average Waiting Time:", nullptr));
     } // retranslateUi
 
