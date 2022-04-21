@@ -15,7 +15,7 @@ private:
 public:
     
     fcfs (Process *processes[], int n);
-    LinkedList gantt_chart();
+    void gantt_chart();
     double waiting_time ();
     double turnarround_time();
     };

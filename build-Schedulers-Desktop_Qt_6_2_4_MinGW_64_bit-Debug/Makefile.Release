@@ -306,7 +306,8 @@ release/Priority.o: ../Schedulers/Priority.cpp ../Schedulers/Priority.h \
 release/fcfs.o: ../Schedulers/fcfs.cpp ../Schedulers/fcfs.h \
 		../Schedulers/process.h \
 		../Schedulers/linkedlist.h \
-		../Schedulers/node.h
+		../Schedulers/node.h \
+		../Schedulers/vec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\fcfs.o ..\Schedulers\fcfs.cpp
 
 release/linkedlist.o: ../Schedulers/linkedlist.cpp ../Schedulers/linkedlist.h \
@@ -628,7 +629,8 @@ release/process.o: ../Schedulers/process.cpp ../Schedulers/process.h \
 release/round_robin.o: ../Schedulers/round_robin.cpp ../Schedulers/round_robin.h \
 		../Schedulers/process.h \
 		../Schedulers/linkedlist.h \
-		../Schedulers/node.h
+		../Schedulers/node.h \
+		../Schedulers/vec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\round_robin.o ..\Schedulers\round_robin.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

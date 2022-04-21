@@ -110,15 +110,15 @@ void MainWindow::on_buttonBox_2_accepted()
 
     if (selected_scheduler == "First Come First Serve"){
         fcfs* scheduler = new fcfs(arr, num_of_processes);
-        list = scheduler->gantt_chart();
+        scheduler->gantt_chart();
         //awt = scheduler->waiting_time();
-        jump = false;
+        //jump = false;
 
     } else if (selected_scheduler == "Round Robin"){
         round_robin* scheduler = new round_robin(arr, num_of_processes, quantum);
-        list = scheduler->gantt_chart();
+        scheduler->gantt_chart();
         //awt = scheduler->waiting_time();
-        jump = false;
+        //jump = false;
 
     } else if (selected_scheduler == "Priority (preemptive)"){
         schedulerf->priority(true, false);

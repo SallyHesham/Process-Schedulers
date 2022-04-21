@@ -14,7 +14,7 @@ private:
 public:
 
     round_robin(Process* processes[], int n, int quan);
-    LinkedList gantt_chart();
+    void gantt_chart();
     double waiting_time();
     double turnarround_time();
 };

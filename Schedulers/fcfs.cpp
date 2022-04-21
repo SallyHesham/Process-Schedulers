@@ -1,4 +1,5 @@
 #include "fcfs.h"
+#include "vec.h"
 #include <functional>
 
  void swap(Process * &a, Process * &b)
@@ -41,15 +42,25 @@ fcfs::fcfs (Process *processes[] , int n)
 }
 
 
-LinkedList fcfs::gantt_chart()
+void fcfs::gantt_chart()
 {
-        LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst(), process[0]->get_entry(), process[0]->get_burst());
+        //LinkedList gantt (process[0]->get_name(),process[0]->get_entry(),process[0]->get_burst(), process[0]->get_entry(), process[0]->get_burst());
+        vn.push_back(process[0]->get_name());
+        vs.push_back(process[0]->get_entry());
+        ve.push_back(process[0]->get_burst());
+        va.push_back(process[0]->get_entry());
+        vb.push_back(process[0]->get_burst());
         int count = process[0]->get_entry() + process[0]->get_burst();
         for (int i = 1 ; i <= size ; i++){
             count += process[i]->get_burst();
-            gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count, process[i]->get_entry(), process[i]->get_burst());
-            }
-            return gantt;
+            //gantt.add_node (process[i]->get_name(),count-process[i]->get_burst(), count, process[i]->get_entry(), process[i]->get_burst());
+            vn.push_back(process[i]->get_name());
+            vs.push_back(count-process[i]->get_burst());
+            ve.push_back(count);
+            va.push_back(process[i]->get_entry());
+            vb.push_back(process[i]->get_burst());
+        }
+           // return gantt;
 }
 
 

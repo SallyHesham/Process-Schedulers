@@ -1,5 +1,5 @@
 #include "round_robin.h"
-
+#include "vec.h"
 round_robin::round_robin(Process* processes[], int n, int quan)
 {
     process = processes;
@@ -8,9 +8,9 @@ round_robin::round_robin(Process* processes[], int n, int quan)
 }
 
 
-LinkedList round_robin::gantt_chart()
+void round_robin::gantt_chart()
 {
-    LinkedList gantt;
+    //LinkedList gantt;
     int count = 0;
     int done = 0;
 
@@ -24,13 +24,23 @@ LinkedList round_robin::gantt_chart()
 
             else if (process[i]->get_time_left() - q > 0) {
                 count += q;
-                gantt.add_node(process[i]->get_name(), count - q, count, process[i]->get_entry(), process[i]->get_burst());
+                //gantt.add_node(process[i]->get_name(), count - q, count, process[i]->get_entry(), process[i]->get_burst());
+                vn.push_back(process[i]->get_name());
+                vs.push_back(count - q);
+                ve.push_back(count);
+                va.push_back(process[i]->get_entry());
+                vb.push_back(process[i]->get_burst());
                 process[i]->set_time_left(process[i]->get_time_left() - q);
             }
 
             else {
                 count += process[i]->get_time_left();
-                gantt.add_node(process[i]->get_name(), count - process[i]->get_time_left(), count, process[i]->get_entry(), process[i]->get_burst());
+                //gantt.add_node(process[i]->get_name(), count - process[i]->get_time_left(), count, process[i]->get_entry(), process[i]->get_burst());
+                vn.push_back(process[i]->get_name());
+                vs.push_back(count - process[i]->get_time_left());
+                ve.push_back(count);
+                va.push_back(process[i]->get_entry());
+                vb.push_back(process[i]->get_burst());
                 process[i]->set_time_left(0);
                 process[i]->set_end_time(count);
                 done++;
@@ -38,7 +48,7 @@ LinkedList round_robin::gantt_chart()
         }
     }
 
-    return gantt;
+    //return gantt;
 }
 
 

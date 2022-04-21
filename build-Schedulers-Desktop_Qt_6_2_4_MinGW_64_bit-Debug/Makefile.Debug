@@ -306,7 +306,8 @@ debug/Priority.o: ../Schedulers/Priority.cpp ../Schedulers/Priority.h \
 debug/fcfs.o: ../Schedulers/fcfs.cpp ../Schedulers/fcfs.h \
 		../Schedulers/process.h \
 		../Schedulers/linkedlist.h \
-		../Schedulers/node.h
+		../Schedulers/node.h \
+		../Schedulers/vec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\fcfs.o ..\Schedulers\fcfs.cpp
 
 debug/linkedlist.o: ../Schedulers/linkedlist.cpp ../Schedulers/linkedlist.h \
@@ -628,7 +629,8 @@ debug/process.o: ../Schedulers/process.cpp ../Schedulers/process.h \
 debug/round_robin.o: ../Schedulers/round_robin.cpp ../Schedulers/round_robin.h \
 		../Schedulers/process.h \
 		../Schedulers/linkedlist.h \
-		../Schedulers/node.h
+		../Schedulers/node.h \
+		../Schedulers/vec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\round_robin.o ..\Schedulers\round_robin.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
